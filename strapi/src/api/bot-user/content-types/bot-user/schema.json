@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bot_users",
+  "info": {
+    "singularName": "bot-user",
+    "pluralName": "bot-users",
+    "displayName": "Пользователь бота"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isApproved": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "text"
+    },
+    "chatId": {
+      "type": "string"
+    }
+  }
+}
