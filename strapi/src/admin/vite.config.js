@@ -8,5 +8,8 @@ module.exports = (config) => {
         '@': '/src',
       },
     },
+    server: {
+      allowedHosts: true
+    }
   });
 };

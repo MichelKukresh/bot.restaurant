@@ -21,13 +21,17 @@
       "multiple": true,
       "required": true,
       "allowedTypes": [
-        "images"
+        "images",
+        "videos"
       ]
     },
     "idOpera": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "isVorking": {
+      "type": "boolean"
     }
   }
 }
