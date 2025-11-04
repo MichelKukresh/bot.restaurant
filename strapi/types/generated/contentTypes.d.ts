@@ -563,15 +563,28 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    address: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'\u0410\u0434\u0440\u0435\u0441'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435'>;
     idOpera: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     image: Schema.Attribute.Media<'images' | 'videos', true> &
       Schema.Attribute.Required;
     isVorking: Schema.Attribute.Boolean;
+    itemImage: Schema.Attribute.Component<'shared.item-image', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+        },
+        number
+      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

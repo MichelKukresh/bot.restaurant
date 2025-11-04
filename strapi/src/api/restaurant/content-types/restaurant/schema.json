@@ -32,6 +32,22 @@
     },
     "isVorking": {
       "type": "boolean"
+    },
+    "address": {
+      "type": "text",
+      "default": "Адрес",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "default": "Описание",
+      "required": true
+    },
+    "itemImage": {
+      "type": "component",
+      "component": "shared.item-image",
+      "repeatable": true,
+      "max": 10
     }
   }
 }

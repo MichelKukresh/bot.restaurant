@@ -11,7 +11,7 @@ class ApiRequestStrapi {
 
     fetchRestaurantsById = async (documentId) => {
         try {
-            const response = await axios.get(`${URL_STRAPI}/api/restaurants/${documentId}?populate[0]=image`);
+            const response = await axios.get(`${URL_STRAPI}/api/restaurants/${documentId}?populate[0]=image&populate[1]=itemImage.image`);
             return response.data;
         } catch (err) {
             this.handleError(err);
@@ -22,7 +22,7 @@ class ApiRequestStrapi {
         const baseUrl = `${URL_STRAPI}/api/restaurants`;
 
         // Формирование параметров вручную
-        const params = `filters[$or][0][idOpera][$containsi]=${search}&filters[$or][1][name][$containsi]=${search}`;
+        const params = `filters[$or][0][idOpera][$containsi]=${search}&filters[$or][1][name][$containsi]=${search}&filters[$and][2][isVorking][$eq]=true`;
 
         console.log(`${baseUrl}?${params}`)
 
@@ -36,8 +36,9 @@ class ApiRequestStrapi {
     };
 
     fetchRestaurants = async (page = 1) => {
+
         try {
-            const response = await axios.get(`${URL_STRAPI}/api/restaurants?populate[0]=image&pagination[page]=${page}&pagination[pageSize]=5`);
+            const response = await axios.get(`${URL_STRAPI}/api/restaurants?populate[0]=image&pagination[page]=${page}&pagination[pageSize]=5&filters[$and][1][isVorking][$eq]=true`);
             return response.data;
         } catch (err) {
             this.handleError(err);
