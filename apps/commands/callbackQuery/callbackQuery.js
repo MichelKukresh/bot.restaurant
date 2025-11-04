@@ -122,7 +122,7 @@ async function callbackQuery({ bot, query }) {
     // Создаем запрос к Telegram API
     const response = await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMediaGroup`, {
       chat_id: chatId,
-      media: mediaArray // Обратите внимание, что это массив объектов
+      media: mediaArray
     });
 
   }

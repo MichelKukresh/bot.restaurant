@@ -575,8 +575,6 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
     idOpera: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    image: Schema.Attribute.Media<'images' | 'videos', true> &
-      Schema.Attribute.Required;
     isVorking: Schema.Attribute.Boolean;
     itemImage: Schema.Attribute.Component<'shared.item-image', true> &
       Schema.Attribute.SetMinMax<

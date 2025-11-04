@@ -16,15 +16,6 @@
       "required": true,
       "unique": true
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
     "idOpera": {
       "type": "string",
       "required": true,
