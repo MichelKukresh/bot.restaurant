@@ -7,7 +7,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 const { URL_STRAPI, TELEGRAM_BOT_TOKEN } = process.env;
 
-
 async function listingRestaraunts(query, bot, thisPage, chatId) {
 
   const isUser = await checkBotUsers(chatId);
