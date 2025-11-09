@@ -580,6 +580,7 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMax<
         {
           max: 10;
+          min: 1;
         },
         number
       >;

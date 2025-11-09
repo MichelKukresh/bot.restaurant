@@ -38,6 +38,7 @@
       "type": "component",
       "component": "shared.item-image",
       "repeatable": true,
+      "min": 1,
       "max": 10
     }
   }
