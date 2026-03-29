@@ -5,7 +5,7 @@ import axios from 'axios';
 import FormData from 'form-data';
 import dotenv from 'dotenv';
 dotenv.config();
-const { URL_STRAPI, TELEGRAM_BOT_TOKEN } = process.env;
+const { URL_STRAPI, MAX_BOT_TOKEN } = process.env;
 
 async function listingRestaraunts(query, bot, thisPage, chatId) {
 
@@ -145,7 +145,7 @@ async function callbackQuery({ bot, query }) {
           {
             params: { type: fileType },
             headers: {
-              'Authorization': `${TELEGRAM_BOT_TOKEN}`
+              'Authorization': `${MAX_BOT_TOKEN}`
             }
           }
         );
@@ -205,7 +205,7 @@ async function callbackQuery({ bot, query }) {
         const messageResponse = await fetch(`https://platform-api.max.ru/messages?user_id=${chatId}`, {
           method: "POST",
           headers: {
-            "Authorization": `${TELEGRAM_BOT_TOKEN}`,
+            "Authorization": `${MAX_BOT_TOKEN}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({

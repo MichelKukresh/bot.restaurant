@@ -10,10 +10,10 @@ import { Bot } from '@maxhub/max-bot-api';
 // const bot = new Bot(process.env.BOT_TOKEN);
 import { MENU } from "./utils/shared/constData.js"
 
-const { TELEGRAM_BOT_TOKEN, URL_STRAPI } = process.env;
+const { MAX_BOT_TOKEN, URL_STRAPI } = process.env;
 
 
-const token = TELEGRAM_BOT_TOKEN;
+const token = MAX_BOT_TOKEN;
 //const bot = new TelegramBot(token, { polling: true });
 const bot = new Bot(token);
 
@@ -48,8 +48,7 @@ bot.command("menu", async (msg) => {
 
 });
 
-bot.action('all_restaurants', async (query) => {
-  console.log(query.callback.payload)
+bot.action('all_restaurants', async (query) => { 
   await callbackQuery({ bot, query });
 });
 
@@ -64,8 +63,6 @@ bot.action(/^page_.+$/, async (query) => {
 
 // Обработчик всех входящих текстовых сообщений
 bot.on('message_created', async (msg) => {
-
-  console.log("message_created", msg.message.body.text)
 
   // Ищем не содержет ли из меню команду
   const blockedCommands = Object.values(MENU).map(item => item.name);
@@ -113,9 +110,6 @@ bot.on('message_created', async (msg) => {
   }
 
 });
-
-
-
 
 bot.start();
 
