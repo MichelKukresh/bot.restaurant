@@ -13,5 +13,4 @@ bot.onText(/(.+)/, async (msg, match) => {
 bot.sendMessage(chatId, `Переходите в MAX - https://max.ru/id7727443551_1_bot`);
 })
 
-bot.start();
 
