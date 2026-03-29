@@ -1,10 +1,10 @@
 const MENU = {
     START: {
-        text: "/start",
+        name: "start",
         description: "Начало работы"
     },
     MENU: {
-        text: "/menu",
+        name: "menu",
         description: "Показать меню ресторана"
     }
 };

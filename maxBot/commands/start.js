@@ -4,26 +4,26 @@ import { MENU } from "../utils/shared/constData.js"
 
 async function start({ bot, msg }) {
 
-  const chatId = msg.chat.id;
+  const chatId = msg.message.sender.user_id;
 
   const isUser = await checkBotUsers(chatId);
 
   // Преобразуем объект MENU в массив команд
   const commands = Object.entries(MENU).map(([key, value]) => ({
-    command: value.text,
+    name: value.text,
     description: value.description
   }));
 
-  bot.setMyCommands(commands);
+  bot.api.setMyCommands(commands);
 
   if (!isUser) {
-    bot.sendMessage(
+    bot.api.sendMessageToUser(
       chatId,
       "Привет! Вы еще не зарегистрированы, передайте этот номер вашему куратору " +
       chatId
     );
   } else {
-    bot.sendMessage(
+    bot.api.sendMessageToUser(
       chatId,
       "Привет! Для начала работы нажмите /menu"
 
